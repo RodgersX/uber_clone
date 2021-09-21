@@ -3,6 +3,7 @@
    <application
         android:label="rider_app"
         android:icon="@mipmap/ic_launcher">
+        
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -37,5 +38,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyA3-0fB263-d7w7AlRLVz_w10IPlNAmvSI"/>
     </application>
 </manifest>

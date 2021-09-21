@@ -6,6 +6,7 @@ import 'package:rider_app/Screens/registrationScreen.dart';
 import 'package:rider_app/Widgets/progressDialog.dart';
 import 'package:rider_app/main.dart';
 
+// ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   static const String routeName = '/login';
 
@@ -134,7 +135,7 @@ class LoginScreen extends StatelessWidget {
       password: passwordController.text,
     )
             .catchError((errMsg) {
-              Navigator.pop(context);
+      Navigator.pop(context);
       displayToastMessage('Error: ${errMsg.toString()}', context);
     }))
         .user;
