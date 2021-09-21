@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1084906130710",
+    "project_id": "uber-clone-983c8",
+    "storage_bucket": "uber-clone-983c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084906130710:android:643162c61e18bb54555437",
+        "android_client_info": {
+          "package_name": "com.example.riderapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1084906130710-m5334u9a6367uuvch2rpio3hqnotgpi4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3-0fB263-d7w7AlRLVz_w10IPlNAmvSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1084906130710-m5334u9a6367uuvch2rpio3hqnotgpi4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
