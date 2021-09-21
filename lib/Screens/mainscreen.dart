@@ -15,6 +15,8 @@ class _MainScreenState extends State<MainScreen> {
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
   GoogleMapController newGooglemapController;
 
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(36.81667, -1.28333),
     zoom: 4.4746,
@@ -23,8 +25,77 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         title: Center(child: Text('Main Screen')),
+      ),
+      drawer: Container(
+        color: Colors.white,
+        width: 300,
+        child: Drawer(
+          child: ListView(
+            children: [
+              Container(
+                height: 200,
+                child: DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'images/user_icon.png',
+                        height: 65,
+                        width: 65,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(width: 16),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Profile Name',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Brand Bold',
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Text('Visit Profile'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              DividerWidget(),
+              SizedBox(height: 12),
+
+              // Drawer body
+              ListTile(
+                leading: Icon(Icons.history),
+                title: Text(
+                  'History',
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text(
+                  'Visit Profile',
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.info),
+                title: Text(
+                  'About',
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: Stack(
         children: [
@@ -36,6 +107,38 @@ class _MainScreenState extends State<MainScreen> {
               _controllerGoogleMap.complete(controller);
               newGooglemapController = controller;
             },
+          ),
+          // hamburger menu
+          Positioned(
+            top: 45,
+            left: 22,
+            child: GestureDetector(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(22),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 6,
+                      spreadRadius: .5,
+                      offset: Offset(.7, .7),
+                    )
+                  ],
+                ),
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.menu,
+                    color: Colors.black,
+                  ),
+                  radius: 20,
+                ),
+              ),
+              onTap: () {
+                scaffoldKey.currentState.openDrawer();
+              },
+            ),
           ),
           Positioned(
             left: 0,
